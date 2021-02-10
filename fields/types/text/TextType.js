@@ -52,12 +52,17 @@ text.prototype.addFilterToQuery = function (filter) {
 	var value = utils.escapeRegExp(filter.value);
 	if (filter.mode === 'beginsWith') {
 		value = '^' + value;
+		value = new RegExp(value, filter.caseSensitive ? '' : 'i');
 	} else if (filter.mode === 'endsWith') {
 		value = value + '$';
+		value = new RegExp(value, filter.caseSensitive ? '' : 'i');
 	} else if (filter.mode === 'exactly') {
-		value = '^' + value + '$';
+		// value = '^' + value + '$';
+		value = filter.value;
+	}else{
+		value = new RegExp(value, filter.caseSensitive ? '' : 'i');
 	}
-	value = new RegExp(value, filter.caseSensitive ? '' : 'i');
+	
 	query[this.path] = filter.inverted ? { $not: value } : value;
 	return query;
 };
