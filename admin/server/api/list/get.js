@@ -56,7 +56,7 @@ module.exports = function (req, res) {
 			if (sort.string) {
 				query.sort(sort.string);
 			}
-			query.exec(function (err, items) {
+			query.clone().exec(function (err, items) {
 				next(err, count, items);
 			});
 		},
