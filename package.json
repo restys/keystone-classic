@@ -1,6 +1,6 @@
 {
   "name": "keystone",
-  "version": "4.2.8",
+  "version": "4.2.9",
   "description": "Web Application Framework and Admin GUI / Content Management System built on Express.js and Mongoose",
   "main": "index.js",
   "repository": {
@@ -63,7 +63,7 @@
     "knox-s3": "^0.9.5",
     "less-middleware": "^3.1.0",
     "list-to-array": "^1.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "marked": "^0.6.2",
     "method-override": "^3.0.0",
     "mime-types": "^2.1.24",
