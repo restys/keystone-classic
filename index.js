@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var express = require('express');
-var grappling = require('grappling-hook');
+var grappling = require('grappling-hook/es6');
 var path = require('path');
 var utils = require('keystone-utils');
 var importer = require('./lib/core/importer');
