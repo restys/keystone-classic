@@ -44,7 +44,7 @@ module.exports = function (req, res) {
 			if (!includeCount) {
 				return next(null, 0);
 			}
-			query.estimatedDocumentCount(next);
+			query.countDocuments(next);
 		},
 		function (count, next) {
 			if (!includeResults) {
