@@ -1,6 +1,7 @@
 var async = require('async');
 var assign = require('object-assign');
 var listToArray = require('list-to-array');
+var countLimit = process.env.KEYSTONE_LIST_COUNT_LIMIT || 100000;
 
 module.exports = function (req, res) {
 	var where = {};
@@ -44,7 +45,8 @@ module.exports = function (req, res) {
 			if (!includeCount) {
 				return next(null, 0);
 			}
-			query.estimatedDocumentCount(next);
+			
+			req.list.model.find(where).limit(countLimit).countDocuments(next);
 		},
 		function (count, next) {
 			if (!includeResults) {
